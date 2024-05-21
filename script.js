@@ -6,6 +6,7 @@ const content = document.querySelector(".container .content");
 const bookForm = document.querySelector(".content .book-form");
 const newBookButton = document.querySelector("#new-button");
 const addBookButton = document.querySelector("#add-button");
+const cards = document.querySelector(".content .cards");
 
 // form data
 const title = document.querySelector("#title");
@@ -55,6 +56,76 @@ function printBooks() {
   }
 }
 
+function renderLastBook(book) {
+  const card = document.createElement("div");
+  const title = document.createElement("div");
+  const author = document.createElement("div");
+  const pages = document.createElement("div");
+  const read = document.createElement("div");
+  const message = document.createElement("div");
+  const toggleRead = document.createElement("button");
+  const deleteButton = document.createElement("button");
+
+  // add classes
+  card.setAttribute("class", "card");
+  title.setAttribute("class", "title");
+  author.setAttribute("class", "author");
+  pages.setAttribute("class", "pages")
+  read.setAttribute("class", "read");
+  message.setAttribute("class", "message");
+  toggleRead.setAttribute("class", "toggleread");
+  deleteButton.setAttribute("class", "delete");
+  
+  // card children
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(read);
+  card.appendChild(deleteButton);
+
+  // read children
+  read.appendChild(message);
+  read.appendChild(toggleRead);
+
+  // text
+  title.textContent = book.title;
+  author.textContent = book.author;
+  pages.textContent = book.numberOfPages;
+  toggleRead.textContent = "Update";
+  deleteButton.textContent = "Delete";
+
+  if (book.wasRead) {
+    message.textContent = "Read book";
+  } else {
+    message.textContent = "Unread book";
+  }
+
+  toggleRead.addEventListener("click", () => {
+    book.wasRead = !book.wasRead;
+    removeBooksFromScreen();
+    renderBooks();
+  });
+  deleteButton.addEventListener("click", () => {
+    
+  });
+  
+  // append to cards
+  cards.appendChild(card);
+}
+
+function removeBooksFromScreen() {
+  const allCards = document.querySelectorAll(".card");
+  for (const card of allCards) {
+    cards.removeChild(card);
+  }
+}
+
+function renderBooks() {
+  for (const book of myLibrary) {
+    renderLastBook(book);
+  }
+}
+
 newBookButton.addEventListener("click", () => {
   const mode = getComputedStyle(bookForm).getPropertyValue("display");
   if (mode === "grid") {
@@ -75,6 +146,7 @@ addBookButton.addEventListener("click", (e) => {
   if (book) {
     addBookToLibrary(book);
     clearFields();
+    renderLastBook(book);
   }
   console.log(myLibrary);
 });
@@ -85,3 +157,5 @@ wasRead.addEventListener("click", () => {
   }
   checkRadioButton = !checkRadioButton;
 });
+
+renderBooks();
