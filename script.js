@@ -56,7 +56,7 @@ function printBooks() {
   }
 }
 
-function renderLastBook(book) {
+function renderBook(book, id) {
   const card = document.createElement("div");
   const title = document.createElement("div");
   const author = document.createElement("div");
@@ -75,6 +75,9 @@ function renderLastBook(book) {
   message.setAttribute("class", "message");
   toggleRead.setAttribute("class", "toggleread");
   deleteButton.setAttribute("class", "delete");
+
+  // add id to the card
+  card.setAttribute("id", id);
   
   // card children
   card.appendChild(title);
@@ -106,7 +109,9 @@ function renderLastBook(book) {
     renderBooks();
   });
   deleteButton.addEventListener("click", () => {
-    
+    myLibrary.splice(id, 1);
+    removeBooksFromScreen();
+    renderBooks();
   });
   
   // append to cards
@@ -121,9 +126,9 @@ function removeBooksFromScreen() {
 }
 
 function renderBooks() {
-  for (const book of myLibrary) {
-    renderLastBook(book);
-  }
+  myLibrary.forEach((book, index) => {
+    renderBook(book, index);
+  });
 }
 
 newBookButton.addEventListener("click", () => {
@@ -146,7 +151,7 @@ addBookButton.addEventListener("click", (e) => {
   if (book) {
     addBookToLibrary(book);
     clearFields();
-    renderLastBook(book);
+    renderBook(book);
   }
 });
 
