@@ -98,7 +98,7 @@
   align-self: center;
 }
 
-.book-form button {
+.book-form #add-button {
   align-self: start;
   justify-self: end;
 }
