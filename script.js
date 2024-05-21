@@ -101,7 +101,7 @@ function renderLastBook(book) {
   }
 
   toggleRead.addEventListener("click", () => {
-    book.wasRead = !book.wasRead;
+    book.toggleRead();
     removeBooksFromScreen();
     renderBooks();
   });
