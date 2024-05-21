@@ -16,9 +16,9 @@ const wasRead = document.querySelector("#wasread");
 
 let checkRadioButton = false;
 
-function Book(author, title, numberOfPages, wasRead) {
-  this.author = author;
+function Book(title, author, numberOfPages, wasRead) {
   this.title = title;
+  this.author = author;
   this.numberOfPages = numberOfPages;
   this.wasRead = wasRead;
 }
