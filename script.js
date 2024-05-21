@@ -3,7 +3,7 @@ myLibrary[0] = new Book("Kevin", "This is an awesome book!", 321, true);
 myLibrary[1] = new Book("Gus", "Also a great book!", 200, false);
 
 const content = document.querySelector(".container .content");
-const bookForm = document.querySelector(".content .book-form");
+const bookForm = document.querySelector(".form-container .book-form");
 const newBookButton = document.querySelector("#new-button");
 const addBookButton = document.querySelector("#add-button");
 const cards = document.querySelector(".content .cards");
@@ -89,8 +89,8 @@ function renderLastBook(book) {
 
   // text
   title.textContent = book.title;
-  author.textContent = book.author;
-  pages.textContent = book.numberOfPages;
+  author.textContent = "by " + book.author;
+  pages.textContent = book.numberOfPages + " pages";
   toggleRead.textContent = "Update";
   deleteButton.textContent = "Delete";
 
@@ -148,7 +148,6 @@ addBookButton.addEventListener("click", (e) => {
     clearFields();
     renderLastBook(book);
   }
-  console.log(myLibrary);
 });
 
 wasRead.addEventListener("click", () => {

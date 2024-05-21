@@ -1,3 +1,12 @@
+body {
+  margin: 0px;
+  font-family: "FiraCode Nerd Font", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button {
+  font-family: "FiraCode Nerd Font", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .container {
   display: grid;
   grid-template-rows: 50px 1fr;
@@ -7,6 +16,10 @@
 .container .header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  background-color: #1b56b5;
+  box-shadow: 0px 4px 15px -6px #222;
+  color: white;
+  padding-left: 30px;
 }
 
 .header h1 {
@@ -18,6 +31,10 @@
 .header #new-button {
   justify-self: center;
   align-self: center;
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  border: 0px;
 }
 
 .container .content {
@@ -29,8 +46,9 @@
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 30px;
+  gap: 15px;
 
-  padding-top: 30px;
 }
 
 .cards .card {
@@ -39,14 +57,19 @@
 
   padding: 20px;
   align-items: center;
+
+  background-color: #1b56b5;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0px 4px 15px -6px #222;
 }
 
 .card .title {
-
+  font-size: 20px;
 }
 
 .card .author {
-
+  font-weight: bold;
 }
 
 .card .pages {
@@ -61,13 +84,26 @@
 
 .read .toggleread {
   justify-self: center;
+  background-color: white;
+  border-radius: 10px;
+  border: 0px;
+  padding: 5px;
 }
 
 .card .delete {
   justify-self: center;
+  background-color: white;
+  border-radius: 10px;
+  border: 0px;
+  padding: 5px;
 }
 
-.content .book-form {
+.container .form-container {
+  padding-bottom: 30px;
+  padding: 30px;
+}
+
+.form-container .book-form {
   display: none;
   grid-template-rows: repeat(4, 50px);
   gap: 30px;
@@ -76,11 +112,17 @@
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
+
+  background-color: red;
+  border-radius: 20px;
+  color: white;
+  background-color: #1b56b5;
+  box-shadow: 0px 4px 15px -6px #222;
 }
 
 .book-form .data {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 175px 1fr;
 
   height: 50px;
 }
@@ -88,17 +130,27 @@
 .data label {
   justify-self: start;
   align-self: center;
+  font-weight: bold;
 }
 
 .data input {
   align-self: center;
+  height: 20px;
+  border-radius: 10px;
+  outline-style: none;
+  border: 0px;
 }
 
 .book-form .radio {
   align-self: center;
+  font-weight: bold;
 }
 
 .book-form #add-button {
   align-self: start;
   justify-self: end;
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  border: 0px;
 }

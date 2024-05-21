@@ -17,30 +17,32 @@
         <div class="cards">
           <!-- render from js -->
         </div>
+      
+        <div class="form-container">
+          <form class="book-form">
+            <div class="data">
+              <label for="title">Title</label>
+              <input type="text" name="title" id="title" required>
+            </div>
 
-        <form class="book-form">
-          <div class="data">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" required>
-          </div>
+            <div class="data">
+              <label for="author">Author</label>
+              <input type="text" name="author" id="author" required>
+            </div>
 
-          <div class="data">
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author" required>
-          </div>
+            <div class="data">
+              <label for="numberofpages">Number of Pages</label>
+              <input type="number" name="numberofpages" id="numberofpages" required>
+            </div>
 
-          <div class="data">
-            <label for="numberofpages">Number of Pages</label>
-            <input type="number" name="numberofpages" id="numberofpages" required>
-          </div>
+            <div class="radio">
+              <label for="wasread">Was read?</label>
+              <input type="radio" name="wasread" id="wasread">
+            </div>
 
-          <div class="radio">
-            <label for="wasread">Was read?</label>
-            <input type="radio" name="wasread" id="wasread">
-          </div>
-
-          <button id="add-button">Add</button>
-        </form>
+            <button id="add-button">Add</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>
