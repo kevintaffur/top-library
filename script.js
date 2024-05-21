@@ -1,6 +1,6 @@
 const myLibrary = [];
-myLibrary[0] = new Book("Kevin", "This is an awesome book!", 321, true);
-myLibrary[1] = new Book("Gus", "Also a great book!", 200, false);
+myLibrary[0] = new Book("This is an awesome book!", "Kevin", 321, true);
+myLibrary[1] = new Book("Also a great book!", "Gus", 200, false);
 
 const content = document.querySelector(".container .content");
 const bookForm = document.querySelector(".form-container .book-form");
